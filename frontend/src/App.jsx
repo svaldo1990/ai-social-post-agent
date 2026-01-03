@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import CustomSourceInput from './components/CustomSourceInput'
+import { API_URL } from './config'
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -19,7 +20,7 @@ function App() {
   const fetchPosts = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:5001/api/posts')
+      const response = await fetch(`${API_URL}/api/posts`)
       const data = await response.json()
 
       if (data.success) {
@@ -36,7 +37,7 @@ function App() {
 
   const fetchStats = async () => {
     try {
-      const response = await fetch('http://localhost:5001/api/stats')
+      const response = await fetch(`${API_URL}/api/stats`)
       const data = await response.json()
       if (data.success) {
         setStats(data.stats)
@@ -67,7 +68,7 @@ function App() {
       setGenerating(true)
       setGenerationProgress('Iniciando generación...')
 
-      const response = await fetch('http://localhost:5001/api/generate', {
+      const response = await fetch(`${API_URL}/api/generate`, {
         method: 'POST'
       })
 
@@ -82,7 +83,7 @@ function App() {
       // Polling para verificar el progreso
       const checkStatus = setInterval(async () => {
         try {
-          const statusResponse = await fetch('http://localhost:5001/api/generate/status')
+          const statusResponse = await fetch(`${API_URL}/api/generate/status`)
           const statusData = await statusResponse.json()
 
           if (statusData.success) {

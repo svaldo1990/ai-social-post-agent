@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './AgentStatus.css'
+import { API_URL } from '../config'
 
 function AgentStatus() {
   const [agentStatus, setAgentStatus] = useState(null)
@@ -16,7 +17,7 @@ function AgentStatus() {
   const fetchAgentStatus = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:5001/api/agent/status')
+      const response = await fetch(`${API_URL}/api/agent/status`)
       const data = await response.json()
 
       if (data.success) {

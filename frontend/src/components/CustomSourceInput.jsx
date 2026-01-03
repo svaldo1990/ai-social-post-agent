@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './CustomSourceInput.css'
+import { API_URL } from '../config'
 
 function CustomSourceInput({ onSourceAdded }) {
   const [sourceUrl, setSourceUrl] = useState('')
@@ -22,7 +23,7 @@ function CustomSourceInput({ onSourceAdded }) {
       setError(null)
       setSuccess(false)
 
-      const response = await fetch('http://localhost:5001/api/custom-source', {
+      const response = await fetch(`${API_URL}/api/custom-source`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -68,7 +69,7 @@ function CustomSourceInput({ onSourceAdded }) {
       setLoading(true)
       setError(null)
 
-      const response = await fetch(`http://localhost:5001/api/fetch-metadata?url=${encodeURIComponent(sourceUrl.trim())}`)
+      const response = await fetch(`${API_URL}/api/fetch-metadata?url=${encodeURIComponent(sourceUrl.trim())}`)
       const data = await response.json()
 
       if (data.success) {
