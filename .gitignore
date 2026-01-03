@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Environment variables - IMPORTANTE: No subir API keys
+.env
+*.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+*.dist
+
+# Data files - Memoria del agente (sensible)
+data/agent_memory.json
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Coverage
+.coverage
+htmlcov/
