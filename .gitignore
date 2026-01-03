@@ -53,3 +53,7 @@ data/agent_memory.json
 # Coverage
 .coverage
 htmlcov/
+
+# Vercel
+.vercel
+.vercel/
