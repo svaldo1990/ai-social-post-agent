@@ -33,6 +33,15 @@ agent-socialpost/
 └── README.md
 ```
 
+## 🤖 Trabajando con Claude Code
+
+Este proyecto está optimizado para trabajar con Claude Code. Los archivos de contexto están configurados para que Claude entienda el proyecto automáticamente:
+
+- **claude.md** - Documentación completa del proyecto, arquitectura y decisiones técnicas
+- **.clinerules** / **.cursorrules** - Reglas para que Claude Code lea el contexto automáticamente
+
+Al iniciar una sesión con Claude Code, el asistente leerá automáticamente estos archivos para entender el estado del proyecto, arquitectura y mejores prácticas.
+
 ## Requisitos Previos
 
 - Python 3.8+

@@ -1,0 +1,39 @@
+# Cursor AI Rules - AI Social Post Agent
+
+## Required Reading on Session Start
+
+Before assisting with any task, read these files for context:
+- `claude.md` - Complete project documentation and context
+- `README.md` - Project overview
+
+## Project Context
+
+This is an AI-powered LinkedIn post generator with an autonomous agent system that makes intelligent decisions about when and how to generate content.
+
+### Tech Stack
+- **Frontend**: React + Vite (deployed on Vercel)
+- **Backend**: Flask + Python (local, pending Railway deployment)
+- **AI**: Google Gemini API
+- **Agent**: Autonomous system with memory and learning
+
+### Key Principles
+
+1. **Always use `API_URL` from config** - Never hardcode API endpoints
+2. **Respect the agent's autonomy** - The agent decides when to generate
+3. **Maintain memory** - Agent learns from past generations
+4. **Test before deploy** - Run tests for both frontend and backend
+
+### Quick Reference
+
+**Frontend Dev**: `cd frontend && npm run dev`
+**Backend Dev**: `cd backend && python server.py`
+**Deploy Frontend**: `vercel --prod`
+**Run Tests**: `pytest backend/tests/` or `npm test` in frontend
+
+### Important Files
+- `backend/agent_brain.py` - Autonomous agent logic
+- `backend/server.py` - API endpoints
+- `frontend/src/config.js` - API URL configuration
+- `data/agent_memory.json` - Agent's persistent memory (don't commit)
+
+See `claude.md` for complete documentation.

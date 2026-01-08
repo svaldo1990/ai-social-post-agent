@@ -1,0 +1,87 @@
+# Claude Code Rules - AI Social Post Agent
+
+## Context Files to Read on Session Start
+
+IMPORTANT: Before responding to any request, read the following context files:
+
+1. **claude.md** - Main project context, architecture, and technical decisions
+2. **README.md** - Project overview and getting started guide
+
+## Project-Specific Guidelines
+
+### When Working with This Project:
+
+1. **Always check claude.md first** for:
+   - Current deployment status
+   - Architecture decisions
+   - API endpoints documentation
+   - Known issues and solutions
+
+2. **Frontend (React + Vite)**:
+   - All API calls MUST use `API_URL` from `config.js`
+   - Never hardcode `localhost:5001` in fetch calls
+   - Environment variable: `VITE_API_URL`
+
+3. **Backend (Flask)**:
+   - Port: 5001
+   - Uses threading for async generation
+   - Not compatible with Vercel serverless
+   - Should be deployed to Railway/Render
+
+4. **Agent System**:
+   - Autonomous decision-making system in `agent_brain.py`
+   - Has persistent memory in `data/agent_memory.json`
+   - Don't modify agent logic without understanding the full system
+
+5. **Testing**:
+   - Backend: `pytest backend/tests/`
+   - Frontend: `npm test` in frontend/
+   - Always run tests before deployment
+
+### Files to Never Commit:
+- `.env` (contains API keys)
+- `data/agent_memory.json` (agent's memory)
+- `.vercel/` (deployment artifacts)
+
+### Common Tasks:
+
+**Deploy Frontend to Vercel**:
+```bash
+vercel --prod
+```
+
+**Run Backend Locally**:
+```bash
+cd backend
+source venv/bin/activate
+python server.py
+```
+
+**Run Frontend Locally**:
+```bash
+cd frontend
+npm run dev
+```
+
+### Current Project State:
+- Frontend: ✅ Deployed to Vercel (https://agent-socialpost.vercel.app)
+- Backend: ❌ Running locally only (pending Railway deployment)
+- Issue: Frontend needs VITE_API_URL configured in Vercel to connect to backend
+
+### When Making Changes:
+
+1. **Read claude.md** for context
+2. **Check related documentation** (AGENTE_AUTONOMO.md, TESTING.md, etc.)
+3. **Follow existing patterns** in the codebase
+4. **Update claude.md** if architecture changes
+5. **Run tests** before committing
+
+### API Key Management:
+- Backend uses `GEMINI_API_KEY` environment variable
+- Never expose API keys in code
+- Use `.env` for local development
+- Configure in Railway/Vercel for production
+
+---
+
+Remember: This project has an autonomous agent system. Understand the agent's decision-making process before modifying related code.
